@@ -1,16 +1,20 @@
 #include <iostream>
 
-int factorial(int n) {
-    return n;
+unsigned long int factorial(int n) {
+  if (n == 0) 
+    return 1;
+    
+  return n * factorial(n - 1);
 }
 
 int main(int argc, char* argv[]) {
-    if (argc <= 1) {
-        std::cout << "Please enter a number argument";
-    }
+  if (argc <= 1) {
+    std::cout << "Please enter a number argument" << std::endl;
+    return 1;
+  }
 
-    int value = (int) *argv[1];
-    std::cout << "Factorial of " << value << "is" << factorial(value) << std::endl;
+  int value = std::stoi(argv[1]);
+  std::cout << value << "! = " << factorial(value) << std::endl;
 
-    return 0;
+  return 0;
 }
